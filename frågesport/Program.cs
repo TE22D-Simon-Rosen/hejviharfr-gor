@@ -1,30 +1,27 @@
 ﻿int points = 0;
 int questionNum = 0;
-string answer1;
-
+string answer;
 
 string[][] questions = {
-    new string[] {"\nFråga 1.\nWhat is Wiggo's name \na) mario \nb) Wiggo \nc) wigo \nd) pytor dragetovich idi nahui", "b"},
-    new string[] {"\nFråga 2.\n2+2? \na) 1 \nb) 2 \nc) 8 \nd) 4", "d"},
-    new string[] {"\nFråga 3.\näta bajs? \na) nej \nb) på måndagar \nc) ja \nd) hej", "b"}
+    new string[] {"\nWhat is Wiggo's name \na) mario \nb) Wiggo \nc) wigo \nd) pytor dragetovich idi nahui", "b"},
+    new string[] {"\n2+2? \na) 1 \nb) 2 \nc) 8 \nd) 4", "d"},
+    new string[] {"\näta bajs? \na) nej \nb) på måndagar \nc) ja \nd) hej", "b"},
+    new string[] {"\nhur kommer man till odenplan?? \na)gå hem \nb) man gör det inte \nc) det är omöjligt \nd) fråga nån annan", "c"}
 };
 
-Console.WriteLine("velkomen frågesporrt. Vad ska du heta?");
-string name = Console.ReadLine();
-
-Console.WriteLine($"Mina damer och herrar, här har vi {name}!!!! Han svara fråga! Svara genom att skriva a, b, c eller d");
+Console.WriteLine("Svara genom att skriva a, b, c eller d");
 Console.ReadLine();
 
 void askQuestion(string question, string correct){
-    answer1 = null;
+    answer = null;
 
     do {
-    Console.WriteLine(question);
-    answer1 = Console.ReadLine().Trim();
-    } while (answer1 != "a" && answer1 != "b" && answer1 != "c" && answer1 != "d");
+    Console.WriteLine($"\nFråga {questionNum + 1}. {question}");
+    answer = Console.ReadLine().Trim();
+    } while (answer != "a" && answer != "b" && answer != "c" && answer != "d");
 
-    if (answer1 == correct){
-        Console.WriteLine("waow du så smart:)))()");
+    if (answer == correct){
+        Console.WriteLine("rätt! waow du så smart:)))()");
         points += 1;
     }
     else{
@@ -34,7 +31,7 @@ void askQuestion(string question, string correct){
     questionNum += 1;
 
     if (questionNum >= questions.Count()){
-        Console.WriteLine($"\nok får se om du vann eller inte... \n\n{points}");
+        Console.WriteLine($"\nok får se om du är bra eller inte... \n\n{points} poäng!");
 
         if (points == 0){
             Console.WriteLine("wow 0 poäng? du är fan bajs");
